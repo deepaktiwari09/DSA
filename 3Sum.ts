@@ -15,50 +15,39 @@
 // Output: [[0,0,0]]
 // Explanation: The only possible triplet sums up to 0.
 
-function threeSum(nums: number[]): number[][] {
-  const result: number[][] = [];
+// function threeSum(nums: number[]): number[][] {
+//   let start = 0
+//   let end = nums.length -1
+//   let target = 6
   
-  // Sorting the input array to easily handle duplicates
-  nums.sort((a, b) => a - b);
-  
-  const n = nums.length;
-  
-  for (let i = 0; i < n - 2; i++) {
-    // Skipping duplicate values for i
-    if (i > 0 && nums[i] === nums[i - 1]) {
-      continue;
-    }
+//   while (start <= end){
+//     let mid = Math.floor((start + end)/2)
+//     let val = nums[mid]
     
-    let left = i + 1;
-    let right = n - 1;
+//     if( val===target){
+//        return mid
+//     }
+//     else if(val<target){
+//       start = mid +1
     
-    while (left < right) {
-      const sum = nums[i] + nums[left] + nums[right];
-      
-      if (sum === 0) {
-        result.push([nums[i], nums[left], nums[right]]);
-        
-        // Skipping duplicate values for left and right
-        while (left < right && nums[left] === nums[left + 1]) {
-          left++;
-        }
-        while (left < right && nums[right] === nums[right - 1]) {
-          right--;
-        }
-        
-        left++;
-        right--;
-      } else if (sum < 0) {
-        left++;
-      } else {
-        right--;
-      }
-    }
-  }
+//     }else{
+//       end = mid -1
+//     }
+//   }
+//   return -1
   
-  return result;
+// }
+
+const sort = (array:number[])=>{
+  return array.sort((a,b)=> {
+    a
+    b
+    let c =  a-b
+    c
+    return c
+  })
 }
 
-console.log(threeSum([-1,0,1,2,-1,-4]))
-console.log(threeSum([0,0,0]))
-console.log(threeSum([0,1,1]))
+console.log(sort([2,3,1]))
+// console.log(threeSum([0,0,0]))
+// console.log(threeSum([0,1,1]))
