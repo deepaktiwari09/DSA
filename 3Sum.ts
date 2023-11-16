@@ -122,6 +122,7 @@
 
 // console.log(test([1, 2, -1, -1, -2, 3, 1], 1));
 
+//How you can hold multiple Index Pointers and move them to compute multiple computations combinations.
 function closestThreeSum(nums, target) {
   nums.sort((a, b) => a - b);
   let closestSum = Infinity;

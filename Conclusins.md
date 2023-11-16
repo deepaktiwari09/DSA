@@ -1,0 +1,1 @@
+ ##How you can hold multiple Index Pointers and move them to compute multiple computations combinations.
