@@ -8,25 +8,44 @@
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
-function twoSum(nums: number[], target: number): number[] {
-    let ts = []
-    for(let i=0; i<nums.length; i++){
-      let value = nums[i]
-      let remain = nums.filter((n,ni)=> i != ni)
-        
-      for (let j=0; j<remain.length; j++){
-        let sum = value + remain[j]
-        sum
-        if(sum == target){
-            ts = [i,j+1]
-            break
-        }
-      }
-      if(ts.length>0){
-        break
-      }
-    }
-    return ts
-  };
+// function twoSum(nums: number[], target: number): number[] {
+//     let ts = []
+//     for(let i=0; i<nums.length; i++){
+//       let value = nums[i]
+//       let remain = nums.filter((n,ni)=> i != ni)
 
-  console.log(twoSum([3,3],6))
+//       for (let j=0; j<remain.length; j++){
+//         let sum = value + remain[j]
+//         sum
+//         if(sum == target){
+//             ts = [i,j+1]
+//             break
+//         }
+//       }
+//       if(ts.length>0){
+//         break
+//       }
+//     }
+//     return ts
+//   };
+
+function twoSum(nums, target) {
+  const numMap = {};
+
+  for (let i = 0; i < nums.length; i++) {
+    //second step
+    const complement = target - nums[i];
+
+    //third step
+    if (numMap[complement] !== undefined) {
+      return [numMap[complement], i];
+    }
+
+    //First step
+    numMap[nums[i]] = i;
+  }
+
+  return [];
+}
+
+console.log(twoSum([4, 4, 2, 5], 9));
