@@ -1,0 +1,24 @@
+- App Development Skillset
+	- Typescript
+	- Javascript
+	- React native
+	- Firebase, OneSignal and VOIP Notifications
+	- Mongo RealmDB
+	- Redux, RTK-query and GraphQL
+	- WebSockets and BLE Device Connections
+	- Agora WebRTC Audio and Video calls
+	- Node-Media-Client Live streaming
+	- Apple Pay, Razor Pay and Stripe payments.
+	- Apps Native Deep linking and Screen routing.
+	- Patching Javascript and Android Native Packages.
+	- Google Play Console Apps Management
+	- Apple Developer Console Apps Management
+	- Jest and Maestro App Testing
+	- Atlassian Jira, bitbucket, Microsoft Teams, Git and GitHub.
+- Web Development Skillset
+	- NextJs Meta framework with SQL db
+	- Figma UI/UX and Prototyping
+- UpSkilling
+	- Qwik city with bun and MongoDB
+- Old Knows Things
+	- Flask and AngularJs
