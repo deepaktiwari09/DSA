@@ -16,6 +16,7 @@
 	- Jest and Maestro App Testing
 	- Atlassian Jira, bitbucket, Microsoft Teams, Git and GitHub.
 - Web Development Skillset
-	- Qwik city with bun and MongoDB
+	- Qwik city with bun
+ 	- Prisma with MongoDB 
 	- Figma UI/UX and Prototyping
 	
