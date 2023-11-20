@@ -16,9 +16,6 @@
 	- Jest and Maestro App Testing
 	- Atlassian Jira, bitbucket, Microsoft Teams, Git and GitHub.
 - Web Development Skillset
-	- NextJs Meta framework with SQL db
-	- Figma UI/UX and Prototyping
-- UpSkilling
 	- Qwik city with bun and MongoDB
-- Old Knows Things
-	- Flask and AngularJs
+	- Figma UI/UX and Prototyping
+	
