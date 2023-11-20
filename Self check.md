@@ -19,4 +19,29 @@
 	- Qwik city with bun
  	- Prisma with MongoDB 
 	- Figma UI/UX and Prototyping
-	
+- Data Structure and Algorithm
+	- String
+	- String Matching
+	- String Bit Manipulation
+	- Array
+	- Array Two Pointers
+	- Array Iterator
+	- Array Prefix Sum
+	- Array Counting
+	- Array Suffix 
+	- Array Quickselect 
+	- Array Sorting 
+	- Array Topological Sort
+	- Array Merge Sort
+	- Array Bucket Sort
+	- Array Counting Sort
+	- Array Radix Sort
+	- Array Binary Search
+	- Hash Table
+	- Hash Function
+	- Hash Rolling
+	- Ordered Set
+	- Recursion
+	- Clousers
+	- Memoization
+	- Promise
