@@ -47,9 +47,17 @@ class Queue<T> {
   }
 }
 
-let appStore = new AsyncStorage();
+class TwitterDataRetrieval<T> extends Queue<T> {
+  constructor() {
+    super();
+  }
 
-class AsyncQueue<T> extends Queue<T> {
+  getCurrentPosition() {}
+
+  getCurrentPosts() {}
+}
+
+class AsyncQueue<T> extends TwitterDataRetrieval<T> {
   constructor(key: string) {
     super();
     this.initial(key);
@@ -75,6 +83,7 @@ class AsyncQueue<T> extends Queue<T> {
   }
 }
 
+let appStore = new AsyncStorage();
 let W = new AsyncQueue("cacheQueue");
 
 W.enqueue({ id: 1 });
