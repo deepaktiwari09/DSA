@@ -1,109 +1,100 @@
-class ListNode<T> {
+class LinkNode<T> {
   value: T;
-  next: ListNode<T> | null;
+  childNode: LinkNode<T> | null;
 
-  constructor(value: T) {
+  constructor(value) {
     this.value = value;
-    this.next = null;
+    this.childNode = null;
   }
 }
 
-export class LinkedList<T> {
-  head: ListNode<T> | null;
+class LinkedList<T> {
+  head: LinkNode<T> | null = null;
 
-  constructor() {
-    this.head = null;
-  }
-
-  // Create (Append)
-  append(value: T): void {
-    const newNode = new ListNode(value);
+  append(value: T) {
     if (!this.head) {
-      this.head = newNode;
-    } else {
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
+      this.head = new LinkNode(value);
+      return;
+    }
+
+    let current = this.head;
+    while (current) {
+      if (current.childNode != null) {
+        current = current.childNode;
+      } else {
+        current.childNode = new LinkNode(value);
+        return;
       }
-      current.next = newNode;
     }
   }
 
-  // Read
-  display(): T[] {
-    const result: T[] = [];
+  remove(value: T) {
+    if (!this.head) {
+      return;
+    }
+
+    if (this.head.value == value) {
+      this.head = this.head.childNode;
+      return;
+    }
+
+    let current = this.head;
+    while (current.childNode) {
+      if (current.childNode.value == value) {
+        current.childNode = current.childNode.childNode;
+        return;
+      } else {
+        current = current.childNode;
+      }
+    }
+  }
+
+  update(oldValue: T, newValue: T) {
+    let current = this.head;
+    while (current) {
+      if (current.value == oldValue) {
+        current.value = newValue;
+        return;
+      }
+      current = current.childNode;
+    }
+  }
+
+  display() {
+    let result: T[] = [];
     let current = this.head;
 
     while (current) {
       result.push(current.value);
-      current = current.next;
+      current = current.childNode;
     }
+
     return result;
-  }
-
-  find(value: T): ListNode<T> | null {
-    let current = this.head;
-    while (current) {
-      if (current.value === value) {
-        return current;
-      }
-      current = current.next;
-    }
-    return null; // Value not found
-  }
-
-  // Update
-  update(oldValue: T, newValue: T): void {
-    let current = this.head;
-    while (current) {
-      if (current.value === oldValue) {
-        current.value = newValue;
-        return;
-      }
-      current = current.next;
-    }
-  }
-
-  // Delete
-  delete(value: T): void {
-    if (!this.head) {
-      return;
-    }
-
-    if (this.head.value === value) {
-      this.head = this.head.next;
-      return;
-    }
-
-    let current = this.head;
-    while (current.next) {
-      if (current.next.value === value) {
-        current.next = current.next.next;
-        return;
-      }
-      current = current.next;
-    }
   }
 }
 
-// Example usage:
+// // Example usage:
 const linkedList = new LinkedList<number>();
 linkedList.append(1);
 linkedList.append(2);
 linkedList.append(3);
-linkedList.append(4);
-
-// console.log("Original Linked List:", linkedList.display());
+linkedList.update(3, 20);
+linkedList.remove(1);
+linkedList.remove(2);
+linkedList.remove(20);
+console.log(linkedList);
+console.log("Original Linked List:", linkedList.display());
 
 // // CRUD operations
 // linkedList.append(4); // Create (Append)
 // console.log("After Append:", linkedList.display());
 
-// linkedList.update(2, 20); // Update
+// linkedList.remove(1);
+// linkedList.remove(2);// Delete
+// linkedList.update(4, 20); // Update
 // console.log("After Update:", linkedList.display());
 
-linkedList.delete(3); // Delete
-console.log("After Delete:", linkedList);
+// console.log("After Delete:", linkedList.display());
 // console.log("After Delete:", linkedList.find(20));
 
 // Appending Elements:
@@ -141,13 +132,13 @@ console.log("After Delete:", linkedList);
 // linkedList.append(3);
 
 // linkedList.update(1, 10);
-// console.log(linkedList.display()); // Should print: [10, 2, 3]
+// console.log("Original Linked List:", linkedList); // Should print: [10, 2, 3]
 
 // linkedList.update(2, 20);
-// console.log(linkedList.display()); // Should print: [10, 20, 3]
+// console.log("Original Linked List:", linkedList);// Should print: [10, 20, 3]
 
 // linkedList.update(3, 30);
-// console.log(linkedList.display()); // Should print: [10, 20, 30]
+// console.log("Original Linked List:", linkedList);// Should print: [10, 20, 30]
 
 // Deleting Elements:
 // Test deleting the head of the list.
@@ -159,21 +150,21 @@ console.log("After Delete:", linkedList);
 // linkedList.append(2);
 // linkedList.append(3);
 
-// linkedList.delete(1);
-// console.log(linkedList.display()); // Should print: [2, 3]
+// linkedList.remove(1);
+// console.log(linkedList); // Should print: [2, 3]
 
-// linkedList.delete(2);
-// console.log(linkedList.display()); // Should print: [3]
+// linkedList.remove(2);
+// console.log(linkedList); // Should print: [3]
 
-// linkedList.delete(3);
-// console.log(linkedList.display()); // Should print: []
+// linkedList.remove(3);
+// console.log(linkedList); // Should print: []
 
-// linkedList.delete(4);
-// console.log(linkedList.display()); // Should print: []
+// linkedList.remove(4);
+// console.log(linkedList); // Should print: []
 
 // Edge Cases:
 // Test with an empty list for update and delete operations.
 
 // linkedList.update(1, 10); // Should do nothing
-// linkedList.delete(1); // Should do nothing
-// console.log(linkedList.display()); // Should print: []
+// linkedList.remove(1); // Should do nothing
+// console.log(linkedList); // Should print: []
